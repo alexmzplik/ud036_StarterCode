@@ -34,4 +34,4 @@ class Movie(Media):
     
     @property
     def featured_trailer(self):
-        return self._trailers.get_featured()
+        return self._trailers.featured()
