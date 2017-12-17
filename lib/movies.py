@@ -18,7 +18,7 @@ class Movies(object):
 
     def delete(self, name):
         if name:
-            return self.list.remove(self.index_of(name))
+            return self._list.remove(self.index_of(name))
         else:
             return False
 
