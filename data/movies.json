@@ -1,0 +1,60 @@
+[{
+        "title": "Mortal Kombat",
+        "sinopse": "Three unknowing martial artists are summoned to a mysterious island to compete in a tournament whose outcome will decide the fate of the world.",
+        "year": 1995,
+        "posters": [{
+            "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzJhYjYxMTctNmY4My00NGIzLThmN2MtYjgwMjlmZWNjMTJlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+            "description": null
+        }],
+        "trailers": [{
+            "title": "Theatrical Trailer",
+            "url": "https://youtu.be/bG3sjYA94G4"
+        }, {
+            "title": "Official Trailer",
+            "url": "https://youtu.be/bG3sjYA94G4"
+        }]
+    },
+    {
+        "title": "Batman: Under the Red Hood",
+        "sinopse": "There's a mystery afoot in Gotham City, and Batman must go toe-to-toe with a mysterious vigilante, who goes by the name of Red Hood. Subsequently, old wounds reopen and old, once buried memories come into the light.",
+        "year": 2010,
+        "posters": [{
+            "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTdlODI0YTYtNjk5ZS00YzZjLTllZjktYmYzNWM4NmI5MmMxXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
+            "description": null
+        }],
+        "trailers": [{
+            "title": "Official Trailer",
+            "url": "https://youtu.be/EcFghlzjEak"
+        }]
+    },
+    {
+        "title": "Final Fantasy VII: Advent Children",
+        "sinopse": "An ex-mercenary is forced out of isolation when three mysterious men kidnap and brainwash the city's children afflicted with the Geostigma disease.",
+        "year": 2005,
+        "posters": [{
+            "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BNjcyMjgxNDYwNl5BMl5BanBnXkFtZTgwMjY0MjE3MjE@._V1_SX300.jpg",
+            "description": null
+        }],
+        "trailers": [{
+                "title": "Official Trailer",
+                "url": "https://youtu.be/EcFghlzjEak"
+            }]
+    },
+    {
+        "title": "Kingsglaive: Final Fantasy XV",
+        "sinopse": "An ex-mercenary is forced out of isolation when three mysterious men kidnap and brainwash the city's children afflicted with the Geostigma disease.",
+        "year": 2016,
+        "posters": [{
+            "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BOTEwNzMxNTU5M15BMl5BanBnXkFtZTgwMzMyMjg3OTE@._V1_SX300.jpg",
+            "description": null
+        }],
+        "trailers": [{
+                "title": "Official Teaser Trailer",
+                "url": "https://youtu.be/iP8EgMUVmwk"
+            },{
+                "title": "Official E3 Trailer",
+                "url": "https://youtu.be/nGl_2gYrfM0",
+                "featured": true
+            }]
+    }
+]
