@@ -35,7 +35,12 @@ class Movies(object):
                         trailer['title'], trailer['url'], ('featured' in trailer))
             if len(node['posters']) > 0:
                 for poster in node['posters']:
-                    movie.add_poster(poster['url'], poster['description'])
+                    if 'url'in poster:
+                        if 'title' not in poster:
+                            name = '{}_{:0>3}'.format(node['title'], (movie.posters.count +1))
+                        else:
+                            name = poster['title']
+                        movie.add_poster(name, poster['url'], poster['description'])
             self.add(movie)
 
     @property
