@@ -8,13 +8,12 @@ class Trailers(object):
         self._featured = 0
 
     def __repr__(self):
-        _ = 'Trailer list ({!r})'.format({"trailers": self.list})
-        return _ | 'No trailer list created'
+        return 'Trailer list ({!r})'.format({"trailers": self.list})
 
     # TODO: implementar validação
     def __is_trailer(self, name, url):
         return True
-    
+
     @property
     def list(self):
         ''' Return a copy of the trailers registered '''
