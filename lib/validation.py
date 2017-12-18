@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from re import compile, IGNORECASE, error as re_error
-from errors import InvalidURL, InvalidDate
+from errors import InvalidURL, InvalidDate, InvalidYear
 from datetime import datetime, date
 
 class Validate(object):
@@ -16,9 +16,19 @@ class Validate(object):
             return True
         else:
             raise InvalidURL(value)
+
     @staticmethod
-    def valida_date(value):
+    def is_valid_date(value):
         try:
-            datetime.strptime(value, '%Y-%m-%d')
+            datetime.strftime(value, '%Y-%m-%d')
         except ValueError:
             raise InvalidDate(value)
+    
+    @staticmethod
+    def is_valid_year(year):
+        regex = compile(r'^\d{4}$')
+        if regex.search(str(year)) and year > 0:
+            return True
+        else:
+            raise InvalidYear(year)
+            
