@@ -37,7 +37,8 @@ class Movies(object):
                 for poster in node['posters']:
                     if 'url'in poster:
                         if 'title' not in poster:
-                            name = '{}_{:0>3}'.format(node['title'], (movie.posters.count +1))
+                            name = '{}_{:0>3}'.format(
+                                node['title'], (movie.posters_count + 1))
                         else:
                             name = poster['title']
                         movie.add_poster(name, poster['url'], poster['description'])
