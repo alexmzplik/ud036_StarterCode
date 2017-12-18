@@ -7,7 +7,7 @@ class Movies(object):
         self._list = []
 
     def __repr__(self):
-        return 'Movies list()'
+        return 'Movies list({!r})'.format({"Movie": self.items})
 
     def add(self, value):
         self._list.append(value)
