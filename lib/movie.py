@@ -1,11 +1,12 @@
 # -*- coding: UTF-8 -*-
 from lib.media import Media
 from lib.trailers import Trailers
+from lib.posters import Posters
 
 class Movie(Media):
     def __init__(self, title, sinopse, year=None):
         super(Movie, self).__init__(title, sinopse, year)
-        self._posters = []
+        self._posters = Posters()
         self._trailers = Trailers()
     
     def __repr__(self):
@@ -15,17 +16,28 @@ class Movie(Media):
             "year": self.year
         })
     
-    def add_poster(self, url, description = None):
-        pass
+    def add_poster(self, name, url, description = None):
+        ''' add poster to the poster list '''
+        self._posters.add(name, url, description)
 
     def add_trailer(self, name, url, isFeatured=False):
-        ''' adds a trailer to the trailer list '''
+        ''' add a trailer to the trailer list '''
         self._trailers.add(name, url, isFeatured)
     
     @property
     def trailers(self):
         ''' list all trailers from the list '''
         return self._trailers.list
+
+    @property
+    def posters(self):
+        ''' list all posters '''
+        return self._posters.list
+
+    @property
+    def posters_count(self):
+        ''' Return the length of the trailer list '''
+        return self._posters.count
 
     @property
     def trailers_count(self):
