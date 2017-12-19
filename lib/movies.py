@@ -13,7 +13,8 @@ class Movies(object):
         self._list.append(value)
 
     def index_of(self, name):
-        #TODO: search by name of movie
+        #TODO: criar a busca por nome do filme.
+        # usar iterator ou coroutine? 
         pass
 
     def delete(self, name):
@@ -22,28 +23,38 @@ class Movies(object):
         else:
             return False
 
-    def _read(self, archive):
-        return open(archive, 'r')
+    def read_csv(self, csv_file):
+        #TODO: a reader from csv file
+        pass
 
-    def read_json(self, file):
-        _ = json.load(self._read(file))
-        for node in _:
-            movie = Movie(node['title'], node['sinopse'], node['year'])
-            if len(node['trailers']) > 0:
-                for trailer in node['trailers']:
-                    movie.add_trailer(
-                        trailer['title'], trailer['url'], ('featured' in trailer))
-            if len(node['posters']) > 0:
-                for poster in node['posters']:
-                    if 'url'in poster:
-                        if 'title' not in poster:
-                            name = '{}_{:0>3}'.format(
-                                node['title'], (movie.posters_count + 1))
-                        else:
-                            name = poster['title']
-                        movie.add_poster(name, poster['url'], poster['description'])
+    def read_json(self, json_file):
+        def parse_params(json_element):
+            def evaluate(param, else_value=None):
+                return else_value if param not in json_element else json_element[param]
+
+            title = evaluate('title')
+            summary = evaluate('description')
+            url = evaluate('url')
+            featured = evaluate('featured', False)
+            return title, url, summary, featured
+
+        json_file = json.load(open(json_file, 'r'))
+        for json_nodes in json_file:
+            movie = Movie(json_nodes['title'], json_nodes['sinopse'], json_nodes['year'])
+            if 'trailers' in json_nodes:
+                for trailer in json_nodes['trailers']:
+                    attr = parse_params(trailer)
+                    movie.add_trailer(attr[0], attr[1], attr[3])
+            if 'posters' in json_nodes:
+                for poster in json_nodes['posters']:
+                    attr = parse_params(poster)
+                    movie.add_poster(attr[0], attr[1], attr[2])
             self.add(movie)
 
     @property
     def items(self):
         return self._list
+
+    @property
+    def count(self):
+        return self._list.count
