@@ -8,42 +8,45 @@ class Movie(Media):
         super(Movie, self).__init__(title, sinopse, year)
         self._posters = Posters()
         self._trailers = Trailers()
-    
+
     def __repr__(self):
         return 'Movie({!r})'.format({
             "title": self.title,
             "sinopse": self.sinopse,
             "year": self.year
         })
-    
-    def add_poster(self, name, url, description = None):
-        ''' add poster to the poster list '''
+   
+    def _nameless_case(self, value, counter):
+        position = getattr(self, counter)
+        if value is None or value.strip() == '':
+            return '{}_{:0>10}'.format(self.title, position + 1)
+        else:
+            return value
+
+    def add_poster(self, name, url, description= None):
+        name = self._nameless_case(name, 'posters_count')
         self._posters.add(name, url, description)
 
     def add_trailer(self, name, url, isFeatured=False):
-        ''' add a trailer to the trailer list '''
+        name = self._nameless_case(name, 'trailers_count')
         self._trailers.add(name, url, isFeatured)
     
     @property
     def trailers(self):
-        ''' list all trailers from the list '''
         return self._trailers.list
 
     @property
     def posters(self):
-        ''' list all posters '''
         return self._posters.list
 
     @property
     def posters_count(self):
-        ''' Return the length of the trailer list '''
         return self._posters.count
 
     @property
     def trailers_count(self):
-        ''' Return the length of the trailer list '''
         return self._trailers.count
-    
+
     @property
     def featured_trailer(self):
         return self._trailers.featured()
