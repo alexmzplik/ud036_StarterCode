@@ -42,20 +42,21 @@ Or, if you preffer, "the boring stuff"
 ### Data
 In the folder *./data* the *movies.json* file has a exemple of the data needed to our app.
 #### JSON file structure:
-```json
+```javascript
+// movies.json
 {
-        "title": //the movie title,
-        "sinopse": //the plot of movie,
-        "year": //year it was produced,
-        "posters": [{//a list of posters of this movie
-            "url": //link to the image,
-            "description": //text about it, optional
-        }],
-        "trailers": [{//list of trailers
-            "title": //trailer title, like official trailer, redband, etc.,
-            "url": // the link to the video
-            "featured": //a boolean value to define if this shoul be the first trailer to show
-        }]
+        "title": "the movie title",
+        "sinopse": "the plot of movie",
+        "year": "the year it was produced",
+        "posters": [{/*a list of posters of this movie*/
+            "url": "a link to the image",
+            "description": "some text about it, optional"
+        }],
+        "trailers": [{/*list of trailers*/
+            "title": "trailer title, like official trailer, redband, etc.",
+            "url": "the link to the video"
+            "featured": "a boolean value to define if this shoul be the first trailer to show"
+        }]
     }
 ```
 ### Layout template
