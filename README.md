@@ -73,7 +73,7 @@ The classes and functions of this project are in the *./lib* folder.
 * **movie**: the class for creating a movie object. It inherits properties from the *Media class* object and uses instaces of the *Trailers list* and the *Posters list* objects.
 * **movies**: the class for creating a list of movies. it has properties to get the featured trailer.
 * **page_creator**: the functions to combine the *[layout templates](#layout-template)* with an instace of *Movies* class.
-* **poster**: the class for creating a *Poster* object. It inherits properties from the *Media class object* 
+* **poster**: the class for creating a *Poster* object. It inherits properties from the *Media class object*. It was based on the file fresh_tomatoes.py from the udacity/ud036_StarterCode repository
 * **posters**: the class for creating a list of *Poster* objects.
 * **trailer**: the class for creating a *Trailer* object. It inherits properties from the *Media class* object.
 * **trailers**: the class for creating a list of *Trailer* objects.
