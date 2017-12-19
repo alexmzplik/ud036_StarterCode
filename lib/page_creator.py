@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 from webbrowser import open as OpenBrowser
-from os.path import abspath as AbsolutePath
+from os import makedirs as MakeDir
+from os.path import exists, abspath as AbsolutePath
 from lib.movies import Movies
 
 def youtube_id_from_trailer(url):
@@ -37,13 +38,24 @@ def open_movies_page(movies, html_page):
     Argumentos-chave:
     movies -- lista com filmes criada com a classe Movie
     """
-    output_file = open(html_page+ '.html', 'w')
-    header = open('model/header.html', 'r').read()
-    body = open('model/body.html', 'r').read()
-    footer = open('model/footer.html', 'r').read()
-    rendered_content = body.format(movie_tiles=create_movie_tiles_content(movies))
-    
-    output_file.write(header + rendered_content + footer)
-    output_file.close()
-    url = AbsolutePath(output_file.name)
-    OpenBrowser('file://' + url, new=2)
+    output_dir = 'output/'
+    html_file = '{}/{}.html'.format(output_dir, html_page)
+    try:
+        output_file = open(html_file, 'w')
+        if not exists(AbsolutePath(output_dir)):
+            MakeDir(output_dir)
+
+        header = open('model/header.html', 'r').read()
+        body = open('model/body.html', 'r').read()
+        footer = open('model/footer.html', 'r').read()
+        rendered_content = body.format(movie_tiles=create_movie_tiles_content(movies))
+        
+        output_file.write(header + rendered_content + footer)
+        output_file.close()
+        url = AbsolutePath(output_file.name)
+        OpenBrowser('file://' + url, new=2)
+    except NameError as error:
+        print "Não foi possível criar a página {}" % html_file
+        print type(error)
+        print error.args
+        print error
