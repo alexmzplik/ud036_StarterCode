@@ -36,9 +36,10 @@ shelf.read_json('data/movies.json')
 '''
 open_movies_page(shelf.items, 'fresh_tomatoes')
 ```
+The result can be viewed on **./output/fresh_tomatoes.html**
 
 ## The components
-Or, if you preffer, "the boring stuff"
+Or, if you preffer, "the boring stuff" [wink and smile]
 ### Data
 In the folder *./data* the *movies.json* file has a exemple of the data needed to our app.
 #### JSON file structure:
