@@ -36,26 +36,28 @@ shelf.read_json('data/movies.json')
 '''
 open_movies_page(shelf.items, 'fresh_tomatoes')
 ```
+The result can be viewed on **./output/fresh_tomatoes.html**
 
 ## The components
-Or, if you preffer, "the boring stuff"
+Or, if you preffer, "the boring stuff" [wink and smile]
 ### Data
 In the folder *./data* the *movies.json* file has a exemple of the data needed to our app.
 #### JSON file structure:
-```json
+```javascript
+// movies.json
 {
-        "title": //the movie title,
-        "sinopse": //the plot of movie,
-        "year": //year it was produced,
-        "posters": [{//a list of posters of this movie
-            "url": //link to the image,
-            "description": //text about it, optional
-        }],
-        "trailers": [{//list of trailers
-            "title": //trailer title, like official trailer, redband, etc.,
-            "url": // the link to the video
-            "featured": //a boolean value to define if this shoul be the first trailer to show
-        }]
+        "title": "the movie title",
+        "sinopse": "the plot of movie",
+        "year": "the year it was produced",
+        "posters": [{/*a list of posters of this movie*/
+            "url": "a link to the image",
+            "description": "some text about it, optional"
+        }],
+        "trailers": [{/*list of trailers*/
+            "title": "trailer title, like official trailer, redband, etc.",
+            "url": "the link to the video"
+            "featured": "a boolean value to define if this shoul be the first trailer to show"
+        }]
     }
 ```
 ### Layout template
@@ -72,7 +74,7 @@ The classes and functions of this project are in the *./lib* folder.
 * **movie**: the class for creating a movie object. It inherits properties from the *Media class* object and uses instaces of the *Trailers list* and the *Posters list* objects.
 * **movies**: the class for creating a list of movies. it has properties to get the featured trailer.
 * **page_creator**: the functions to combine the *[layout templates](#layout-template)* with an instace of *Movies* class.
-* **poster**: the class for creating a *Poster* object. It inherits properties from the *Media class object* 
+* **poster**: the class for creating a *Poster* object. It inherits properties from the *Media class object*. It was based on the file fresh_tomatoes.py from the udacity/ud036_StarterCode repository
 * **posters**: the class for creating a list of *Poster* objects.
 * **trailer**: the class for creating a *Trailer* object. It inherits properties from the *Media class* object.
 * **trailers**: the class for creating a list of *Trailer* objects.
