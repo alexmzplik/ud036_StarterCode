@@ -3,7 +3,15 @@ from lib.media import Media
 from lib.trailers import Trailers
 from lib.posters import Posters
 
+
 class Movie(Media):
+    '''
+    Extendends the Media class to create a movie object.
+    keyword arguments:
+    title   (string)  -- the movie title
+    sinopse (string)  -- the movie plot
+    year    (integer) -- the year the movie was released
+    '''
     def __init__(self, title, sinopse, year=None):
         super(Movie, self).__init__(title, sinopse, year)
         self._posters = Posters()
@@ -17,6 +25,10 @@ class Movie(Media):
         })
    
     def _nameless_case(self, value, counter):
+        '''
+        In case the argument value is not defined, it returns an string with
+        the movie title and que count attribute of the media it represents (trailer or poster)
+        '''
         position = getattr(self, counter)
         if value is None or value.strip() == '':
             return '{}_{:0>10}'.format(self.title, position + 1)
