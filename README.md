@@ -13,7 +13,16 @@
 This project is an exercise of a movie trailer website file creation in python using template and objects for my *Web Full-Stack nanodegree program* course.
 
 ## How to use
-All we need is an json file as in [json structure](#data), import the *Movies class* and the *open_movies_page function*, instanciate Movies and import the json file and call *open_movies_page*.
+#### what is Love, I mean, Python?
+If you want test this, you need Python. You doesn't know Python, then your new best friend will be this link https://www.python.org/about/gettingstarted/.
+Once you have Python installed, running and tried some new tricks, you can download this and on your favorite shell go to the folder where you save and run the app.py file
+```
+$ python app.py
+```
+The result can be viewed on **./output/fresh_tomatoes.html**, which will be open on the browser.
+
+#### yes, I now python-fu!
+Then all you need is an json file as in [json structure](#data), import the *Movies class* and the *open_movies_page function*, instanciate Movies and import the json file and call *open_movies_page*.
 
 Below we have the sample of file to create the page:
 
