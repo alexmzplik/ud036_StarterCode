@@ -7,9 +7,9 @@ class Media(object):
     '''
     Base class for any type of media like movie, poster, trailer, book, etc.
     keyword arguments:
-    title   (str) -- the title/name for the media.
-    sinopse (str) -- the description of the media.
-    year    (int) -- year when the media was published or released, optional.
+    title   (string)  -- the title/name for the media.
+    sinopse (string)  -- the description of the media.
+    year    (integer) -- year when the media was published or released, optional.
     
     attributes:
     title       (string)   -- the title/name of the media.

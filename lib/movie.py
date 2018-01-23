@@ -12,6 +12,7 @@ class Movie(Media):
     sinopse (string)  -- the movie plot
     year    (integer) -- the year the movie was released
     '''
+
     def __init__(self, title, sinopse, year=None):
         super(Movie, self).__init__(title, sinopse, year)
         self._posters = Posters()
@@ -23,7 +24,7 @@ class Movie(Media):
             "sinopse": self.sinopse,
             "year": self.year
         })
-   
+
     def _nameless_case(self, value, counter):
         '''
         In case the argument value is not defined, it returns an string with
@@ -35,14 +36,28 @@ class Movie(Media):
         else:
             return value
 
-    def add_poster(self, name, url, description= None):
+    def add_poster(self, name, url, description=None):
+        '''
+        adds poster to the movie.
+        keywords arguments:
+        name         (string) -- the poster's title
+        url          (string) -- the link of the image for the poster
+        descriptions (string) -- the poster's description, optional
+        '''
         name = self._nameless_case(name, 'posters_count')
         self._posters.add(name, url, description)
 
     def add_trailer(self, name, url, isFeatured=False):
+        '''
+        adds poster to the movie.
+        keywords arguments:
+        name         (string) -- the trailer's title
+        url          (string) -- the link of the image for the trailer
+        descriptions (string) -- the trailer's description, optional
+        '''
         name = self._nameless_case(name, 'trailers_count')
         self._trailers.add(name, url, isFeatured)
-    
+
     @property
     def trailers(self):
         return self._trailers.list
