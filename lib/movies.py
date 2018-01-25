@@ -2,7 +2,15 @@
 import json
 from lib.movie import Movie
 
+
 class Movies(object):
+    '''
+    Class to create a list of movies.
+
+    attributes:
+    _list (string) -- list container for the movies.
+    '''
+
     def __init__(self):
         self._list = []
 
@@ -10,21 +18,40 @@ class Movies(object):
         return 'Movies list({!r})'.format({"Movie": self.items})
 
     def add(self, value):
+        '''
+        Adds a movie to the list.
+        keyword arguments:
+        value   (Movie)  -- the movie title
+        TODO: check the way to determine if a variable is an instance of another object or its class type
+        '''
         self._list.append(value)
 
     def index_of(self, name):
-        #TODO: criar a busca por nome do filme.
-        # usar iterator ou coroutine? 
+        '''
+        Returns the position of the Movie in the list after search for its name.
+        keyword arguments:
+        name (string) -- the movie title/name
+        TODO: Find a way to search within the list for a movie by its attribute "title". Maybe use the iterator concept or coroutine?
+        '''
         pass
 
     def delete(self, name):
+        '''
+        Remove the Movie from the list after search for its name.
+        -- Currently not working cause it needs the index_of function
+        keyword arguments:
+        name (string) -- the movie title/name
+        '''
         if name:
             return self._list.remove(self.index_of(name))
         else:
             return False
 
     def read_csv(self, csv_file):
-        #TODO: a reader from csv file
+        '''
+        Import the movie list from a csv file
+        TODO: learn how to fast read a csv file
+        '''
         pass
 
     def read_json(self, json_file):
@@ -40,7 +67,8 @@ class Movies(object):
 
         json_file = json.load(open(json_file, 'r'))
         for json_nodes in json_file:
-            movie = Movie(json_nodes['title'], json_nodes['sinopse'], json_nodes['year'])
+            movie = Movie(json_nodes['title'],
+                          json_nodes['sinopse'], json_nodes['year'])
             if 'trailers' in json_nodes:
                 for trailer in json_nodes['trailers']:
                     attr = parse_params(trailer)

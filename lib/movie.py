@@ -29,6 +29,9 @@ class Movie(Media):
         '''
         In case the argument value is not defined, it returns an string with
         the movie title and que count attribute of the media it represents (trailer or poster)
+        keyword arguments:
+        value   (string)  -- the string to be used as title of the media. Optional
+        counter (string)  -- the name of attribute with the quantity to be used as reference for the media
         '''
         position = getattr(self, counter)
         if value is None or value.strip() == '':
@@ -60,20 +63,25 @@ class Movie(Media):
 
     @property
     def trailers(self):
+        ''' returns the trailers list '''
         return self._trailers.list
 
     @property
     def posters(self):
+        ''' returns the posters list '''
         return self._posters.list
 
     @property
     def posters_count(self):
+        ''' returns the quantity of posters registered '''
         return self._posters.count
 
     @property
     def trailers_count(self):
+        ''' returns the quantity of trailers registered '''
         return self._trailers.count
 
     @property
     def featured_trailer(self):
+        ''' returns the featured trailer or the first one if there´s no featured trailer '''
         return self._trailers.featured()

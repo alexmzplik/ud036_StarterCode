@@ -21,6 +21,7 @@ class HasNoRecords(CustomException):
         self.message = "\"%s\" não possui registros" % value
         super(HasNoRecords, self).__init__()
 
+
 class InvalidYear(CustomException):
     def __init__(self, value):
         self.message = "\"%s\" não é um ano válido" % value

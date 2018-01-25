@@ -10,7 +10,7 @@ class Media(object):
     title   (string)  -- the title/name for the media.
     sinopse (string)  -- the description of the media.
     year    (integer) -- year when the media was published or released, optional.
-    
+
     attributes:
     title       (string)   -- the title/name of the media.
     name        (string)   -- a shortcut to the title of the media.
@@ -19,6 +19,7 @@ class Media(object):
     created     (datetime) -- the date when the media object was created.
     last_change (datetime) -- the date of the last change of the media.
     '''
+
     def __init__(self, title, sinopse, year=None):
         self._title = title
         self._sinopse = sinopse
@@ -58,7 +59,7 @@ class Media(object):
     @property
     def created(self):
         return self._inserted_date
-    
+
     @created.setter
     def created(self, value):
         if Validate.is_valid_date(value):
