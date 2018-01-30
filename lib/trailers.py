@@ -2,7 +2,14 @@
 from lib.trailer import Trailer
 from lib.errors import HasNoRecords
 
+
 class Trailers(object):
+    '''
+    Class to create a list of trailer.
+    attributes:
+    _list     (array of trailer object) -- list container for the trailers.
+    _featured (integer)                 -- the index of the feature trailer, normally the theatrical. Default the first one, index 0.
+    '''
     def __init__(self):
         self._list = []
         self._featured = 0
@@ -10,8 +17,11 @@ class Trailers(object):
     def __repr__(self):
         return 'Trailer list ({!r})'.format({"trailers": self.list})
 
-    # TODO: implementar validação
     def __is_trailer(self, name, url):
+        '''
+        NOT IMPLEMENTED: check if the info give can be used as a trailer object
+        TODO: implementar validação
+        '''
         return True
 
     @property

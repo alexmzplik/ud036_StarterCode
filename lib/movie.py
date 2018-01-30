@@ -11,8 +11,11 @@ class Movie(Media):
     title   (string)  -- the movie title
     sinopse (string)  -- the movie plot
     year    (integer) -- the year the movie was released
+    attributes:
+    -- all inherited from Media
+    _posters  (array of poster object)  -- a list of posters of the movie
+    _trailers (array of trailer object) -- a list of trailers of the movie
     '''
-
     def __init__(self, title, sinopse, year=None):
         super(Movie, self).__init__(title, sinopse, year)
         self._posters = Posters()
