@@ -8,8 +8,10 @@ class Trailers(object):
     Class to create a list of trailer.
     attributes:
     _list     (array of trailer object) -- list container for the trailers.
-    _featured (integer)                 -- the index of the feature trailer, normally the theatrical. Default the first one, index 0.
+    _featured (integer)                 -- the index of the feature trailer,
+    normally the theatrical. Default the first one, index 0.
     '''
+
     def __init__(self):
         self._list = []
         self._featured = 0
@@ -46,7 +48,7 @@ class Trailers(object):
             item = Trailer(name, url)
             self._list.append(item)
         if isFeatured:
-            self._featured = len(self._list) -1
+            self._featured = len(self._list) - 1
 
     def featured(self):
         '''

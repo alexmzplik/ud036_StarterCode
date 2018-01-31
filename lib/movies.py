@@ -22,16 +22,21 @@ class Movies(object):
         Adds a movie to the list.
         keyword arguments:
         value   (Movie)  -- the movie title
-        TODO: check the way to determine if a variable is an instance of another object or its class type
+        TODO: check the way to determine if a variable is an instance of
+        another object or its class type
         '''
         self._list.append(value)
 
     def index_of(self, name):
         '''
-        Returns the position of the Movie in the list after search for its name.
+        Searh a movie from the list by it's name and returns its position on
+        the list.
+
         keyword arguments:
         name (string) -- the movie title/name
-        TODO: Find a way to search within the list for a movie by its attribute "title". Maybe use the iterator concept or coroutine?
+
+        TODO: Find a way to search within the list for a movie by its attribute
+        "title". Maybe use the iterator concept or coroutine?
         '''
         pass
 
@@ -64,22 +69,30 @@ class Movies(object):
             '''
             returns an array of objects to compose a media with ease
             keywords arguments:
-            json_element (Object) -- a python object converted from a json element
+            json_element (Object) -- a python object converted from a json
+            element
 
             attributes:
             title    (string)  -- the media title
             summary  (string)  -- the media summary
             url      (string)  -- the media url
-            featured (boolean) -- if the media is featured or not. default false
+            featured (boolean) -- if the media is featured or not.
+            Default false
             '''
             def evaluate(param, else_value=None):
                 '''
-                check if the given param has value to return or returns an optional value if it has not
+                check if the given param has value to return or returns an
+                optional value if it has not
+
                 keyword arguments:
                 param      (string)  -- the attribute name from the jsn_element
-                else_value (variant) -- the value to be used if the attribute has no value. defautl None
+                else_value (variant) -- the value to be used if the attribute
+                has no value. defautl None
                 '''
-                return else_value if param not in json_element else json_element[param]
+                if param not in json_element:
+                    return else_value
+
+                return json_element[param]
 
             title = evaluate('title')
             summary = evaluate('description')

@@ -9,7 +9,7 @@ class Media(object):
     keyword arguments:
     title   (string)  -- the title/name for the media.
     sinopse (string)  -- the description of the media.
-    year    (integer) -- year when the media was published or released, optional.
+    year    (integer) -- year when it was published or released, optional.
 
     attributes:
     _title       (string)   -- the title/name of the media.
@@ -19,6 +19,7 @@ class Media(object):
     _created     (datetime) -- the date when the media object was created.
     _last_change (datetime) -- the date of the last change of the media.
     '''
+
     def __init__(self, title, sinopse, year=None):
         self._title = title
         self._sinopse = sinopse

@@ -7,15 +7,18 @@ from lib.posters import Posters
 class Movie(Media):
     '''
     Extendends the Media class to create a movie object.
+
     keyword arguments:
     title   (string)  -- the movie title
     sinopse (string)  -- the movie plot
     year    (integer) -- the year the movie was released
+
     attributes:
     -- all inherited from Media
     _posters  (array of poster object)  -- a list of posters of the movie
     _trailers (array of trailer object) -- a list of trailers of the movie
     '''
+
     def __init__(self, title, sinopse, year=None):
         super(Movie, self).__init__(title, sinopse, year)
         self._posters = Posters()
@@ -31,10 +34,13 @@ class Movie(Media):
     def _nameless_case(self, value, counter):
         '''
         In case the argument value is not defined, it returns an string with
-        the movie title and que count attribute of the media it represents (trailer or poster)
+        the movie title and que count attribute of the media it represents
+        (trailer or poster)
+
         keyword arguments:
-        value   (string)  -- the string to be used as title of the media. Optional
-        counter (string)  -- the name of attribute with the quantity to be used as reference for the media
+        value   (string)  -- the title for the media. Optional
+        counter (string)  -- the name of attribute with the quantity to be used
+        as reference for the media
         '''
         position = getattr(self, counter)
         if value is None or value.strip() == '':
@@ -86,5 +92,8 @@ class Movie(Media):
 
     @property
     def featured_trailer(self):
-        ''' returns the featured trailer or the first one if there´s no featured trailer '''
+        '''
+        returns the featured trailer.
+        If there´s no featured trailer, returns the first
+        '''
         return self._trailers.featured()
